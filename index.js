@@ -79,7 +79,7 @@ console.log('Bonus​:​ ​the​ ​number​ ​of​ ​possible​ ​deli
 
 console.log('The​ ​cost​ ​of​ ​cheapest​ ​delivery​ ​route​ ​between​ ​E​ ​to​ ​D : %s', (() => {
     try{
-        return graph.shortestPaths('E','D').cost
+        return graph.cheapestPaths('E','D').cost
     }catch (e) {
         return e.message
     }
@@ -87,7 +87,7 @@ console.log('The​ ​cost​ ​of​ ​cheapest​ ​delivery​ ​route�
 
 console.log('The​ ​cost​ ​of​ ​cheapest​ ​delivery​ ​route​ ​between​ ​E​ ​to​ ​E : %s', (() => {
     try{
-        return graph.shortestPaths('E','E').cost
+        return graph.cheapestPaths('E','E').cost
     }catch (e) {
         return e.message
     }

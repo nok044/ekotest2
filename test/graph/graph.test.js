@@ -260,60 +260,60 @@ describe('Graph', () => {
         })
     })
 
-    describe('#shortestPaths()', () => {
+    describe('#cheapestPaths()', () => {
         it('Invalid start type', () => {
             const graph = new Graph()
-            expect(() => graph.shortestPaths(1,'B',{})).toThrow('Invalid param(s)')
+            expect(() => graph.cheapestPaths(1,'B',{})).toThrow('Invalid param(s)')
         })
 
         it('Invalid end type', () => {
             const graph = new Graph()
-            expect(() => graph.shortestPaths('A',1,{})).toThrow('Invalid param(s)')
+            expect(() => graph.cheapestPaths('A',1,{})).toThrow('Invalid param(s)')
         })
 
         it('Invalid condition type', () => {
             const graph = new Graph()
-            expect(() => graph.shortestPaths('A','B',1)).toThrow('Invalid param(s)')
+            expect(() => graph.cheapestPaths('A','B',1)).toThrow('Invalid param(s)')
         })
 
         it('Invalid paths', () => {
             const graph = new Graph()
 
-            expect(() => graph.shortestPaths('A','B')).toThrow('No​ ​Such​ ​Route')
+            expect(() => graph.cheapestPaths('A','B')).toThrow('No​ ​Such​ ​Route')
         })
 
-        it('Find shortest path of 2 nodes', () => {
+        it('Find cheapest path of 2 nodes', () => {
             const graph = new Graph()
 
             graph.addNode('A', 'B', 1)
 
-            let paths = graph.shortestPaths('A','B')
+            let paths = graph.cheapestPaths('A','B')
             assert.equal(paths.cost, 1)
             assert.equal(paths.path[0], 'A')
             assert.equal(paths.path[1], 'B')
         })
 
-        it('Find shortest path of 3 nodes', () => {
+        it('Find cheapest path of 3 nodes', () => {
             const graph = new Graph()
 
             graph.addNode('A', 'B', 1)
                 .addNode('B', 'C', 2)
 
-            let paths = graph.shortestPaths('A','C')
+            let paths = graph.cheapestPaths('A','C')
             assert.equal(paths.cost, 3)
             assert.equal(paths.path[0], 'A')
             assert.equal(paths.path[1], 'B')
             assert.equal(paths.path[2], 'C')
         })
 
-        it('Find shortest path of 3 nodes with multiple path', () => {
+        it('Find cheapest path of 3 nodes with multiple path', () => {
             const graph = new Graph()
 
             graph.addNode('A', 'B', 1)
                 .addNode('B', 'C', 2)
                 .addNode('A', 'C', 2)
 
-            let paths = graph.shortestPaths('A','C')
+            let paths = graph.cheapestPaths('A','C')
             assert.equal(paths.cost, 2)
             assert.equal(paths.path[0], 'A')
             assert.equal(paths.path[1], 'C')
